@@ -74,11 +74,11 @@
             busca_binaria(vetor, valor);
         }
         function busca_binaria(vetor, valor, offset=0) {
-            meio = Math.round(vetor.length/2);
+            meio = Math.floor(vetor.length/2);
             if (valor < vetor[meio]) {
-                busca_binaria(vetor.slice(0, meio+1), valor, offset);
+                busca_binaria(vetor.slice(0, meio), valor, offset);
             } else if (valor > vetor[meio]) {
-                busca_binaria(vetor.slice(meio+1, -1), valor, offset + meio + 1);
+                busca_binaria(vetor.slice(meio+1), valor, offset + meio + 1);
             } else {
                 document.getElementById("resposta3").innerHTML = "índice: " + (offset + meio);
             }
@@ -112,6 +112,7 @@
         <p>Valor: <input type="text" id="txtvalor"></input></p>
         <button onclick="prepara()">Busca binária</button>
         <p id="resposta3"></p>
+        <hr>
         <p>Pequeno tutorial para colocar no GitHub: <a href="https://pages.github.com">pages.github.com</a></p>
     </body>
 </html>
